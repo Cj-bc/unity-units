@@ -28,14 +28,14 @@ namespace CjBc.Unity.Units.Tests
         public void FromMilesPerHour_ConvertsToMetersPerSecond()
         {
             var speed = Speed.FromMilesPerHour(1.0);
-            Assert.That(speed.MetersPerSecond, Is.EqualTo(0.44704).Within(1e-4));
+            Assert.That(speed.MetersPerSecond, Is.EqualTo(0.44704).Within(Tolerance));
         }
 
         [Test]
         public void FromKnots_ConvertsToMetersPerSecond()
         {
             var speed = Speed.FromKnots(1.0);
-            Assert.That(speed.MetersPerSecond, Is.EqualTo(0.514444).Within(1e-4));
+            Assert.That(speed.MetersPerSecond, Is.EqualTo(0.514444).Within(Tolerance));
         }
 
         [Test]
@@ -49,14 +49,14 @@ namespace CjBc.Unity.Units.Tests
         public void MilesPerHour_ReturnsCorrectValue()
         {
             var speed = Speed.FromMetersPerSecond(1.0);
-            Assert.That(speed.MilesPerHour, Is.EqualTo(2.236936).Within(1e-4));
+            Assert.That(speed.MilesPerHour, Is.EqualTo(2.236936).Within(Tolerance));
         }
 
         [Test]
         public void Knots_ReturnsCorrectValue()
         {
             var speed = Speed.FromMetersPerSecond(1.0);
-            Assert.That(speed.Knots, Is.EqualTo(1.943844).Within(1e-4));
+            Assert.That(speed.Knots, Is.EqualTo(1.943844).Within(Tolerance));
         }
 
         [Test]
