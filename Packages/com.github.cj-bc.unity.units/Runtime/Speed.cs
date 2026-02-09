@@ -33,118 +33,52 @@ namespace CjBc.Unity.Units
         /// </summary>
         public static readonly Speed Zero = new Speed(0);
 
-        private Speed(double metersPerSecond)
-        {
-            MetersPerSecond = metersPerSecond;
-        }
+        private Speed(double metersPerSecond) => MetersPerSecond = metersPerSecond;
 
-        public static Speed FromMetersPerSecond(double value)
-        {
-            return new Speed(value);
-        }
+        public static Speed FromMetersPerSecond(double value) => new Speed(value);
 
-        public static Speed FromKilometersPerHour(double value)
-        {
-            return new Speed(value / 3.6);
-        }
+        public static Speed FromKilometersPerHour(double value) => new Speed(value / 3.6);
 
-        public static Speed FromMilesPerHour(double value)
-        {
-            return new Speed(value / 2.2369362920544);
-        }
+        public static Speed FromMilesPerHour(double value) => new Speed(value / 2.2369362920544);
 
-        public static Speed FromKnots(double value)
-        {
-            return new Speed(value / 1.9438444924406);
-        }
+        public static Speed FromKnots(double value) => new Speed(value / 1.9438444924406);
 
         // Arithmetic operators
-        public static Speed operator +(Speed a, Speed b)
-        {
-            return new Speed(a.MetersPerSecond + b.MetersPerSecond);
-        }
+        public static Speed operator +(Speed a, Speed b) => new Speed(a.MetersPerSecond + b.MetersPerSecond);
 
-        public static Speed operator -(Speed a, Speed b)
-        {
-            return new Speed(a.MetersPerSecond - b.MetersPerSecond);
-        }
+        public static Speed operator -(Speed a, Speed b) => new Speed(a.MetersPerSecond - b.MetersPerSecond);
 
-        public static Speed operator *(Speed a, double scalar)
-        {
-            return new Speed(a.MetersPerSecond * scalar);
-        }
+        public static Speed operator *(Speed a, double scalar) => new Speed(a.MetersPerSecond * scalar);
 
-        public static Speed operator *(double scalar, Speed a)
-        {
-            return new Speed(a.MetersPerSecond * scalar);
-        }
+        public static Speed operator *(double scalar, Speed a) => new Speed(a.MetersPerSecond * scalar);
 
-        public static Speed operator /(Speed a, double scalar)
-        {
-            return new Speed(a.MetersPerSecond / scalar);
-        }
+        public static Speed operator /(Speed a, double scalar) => new Speed(a.MetersPerSecond / scalar);
 
-        public static Speed operator -(Speed a)
-        {
-            return new Speed(-a.MetersPerSecond);
-        }
+        public static Speed operator -(Speed a) => new Speed(-a.MetersPerSecond);
 
         // Comparison operators
-        public static bool operator ==(Speed a, Speed b)
-        {
-            return a.MetersPerSecond == b.MetersPerSecond;
-        }
+        public static bool operator ==(Speed a, Speed b) => a.MetersPerSecond == b.MetersPerSecond;
 
-        public static bool operator !=(Speed a, Speed b)
-        {
-            return a.MetersPerSecond != b.MetersPerSecond;
-        }
+        public static bool operator !=(Speed a, Speed b) => a.MetersPerSecond != b.MetersPerSecond;
 
-        public static bool operator <(Speed a, Speed b)
-        {
-            return a.MetersPerSecond < b.MetersPerSecond;
-        }
+        public static bool operator <(Speed a, Speed b) => a.MetersPerSecond < b.MetersPerSecond;
 
-        public static bool operator >(Speed a, Speed b)
-        {
-            return a.MetersPerSecond > b.MetersPerSecond;
-        }
+        public static bool operator >(Speed a, Speed b) => a.MetersPerSecond > b.MetersPerSecond;
 
-        public static bool operator <=(Speed a, Speed b)
-        {
-            return a.MetersPerSecond <= b.MetersPerSecond;
-        }
+        public static bool operator <=(Speed a, Speed b) => a.MetersPerSecond <= b.MetersPerSecond;
 
-        public static bool operator >=(Speed a, Speed b)
-        {
-            return a.MetersPerSecond >= b.MetersPerSecond;
-        }
+        public static bool operator >=(Speed a, Speed b) => a.MetersPerSecond >= b.MetersPerSecond;
 
         // IEquatable<Speed>
-        public bool Equals(Speed other)
-        {
-            return MetersPerSecond == other.MetersPerSecond;
-        }
+        public bool Equals(Speed other) => MetersPerSecond == other.MetersPerSecond;
 
-        public override bool Equals(object obj)
-        {
-            return obj is Speed other && Equals(other);
-        }
+        public override bool Equals(object obj) => obj is Speed other && Equals(other);
 
-        public override int GetHashCode()
-        {
-            return MetersPerSecond.GetHashCode();
-        }
+        public override int GetHashCode() => MetersPerSecond.GetHashCode();
 
         // IComparable<Speed>
-        public int CompareTo(Speed other)
-        {
-            return MetersPerSecond.CompareTo(other.MetersPerSecond);
-        }
+        public int CompareTo(Speed other) => MetersPerSecond.CompareTo(other.MetersPerSecond);
 
-        public override string ToString()
-        {
-            return $"{MetersPerSecond} m/s";
-        }
+        public override string ToString() => $"{MetersPerSecond} m/s";
     }
 }
