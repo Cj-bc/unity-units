@@ -14,49 +14,49 @@ namespace CjBc.Unity.Units.Tests
         public void FromMetersPerSecond_StoresValueCorrectly()
         {
             var speed = Speed.FromMetersPerSecond(10.0);
-            Assert.AreEqual(10.0, speed.MetersPerSecond, Tolerance);
+            Assert.That(speed.MetersPerSecond, Is.EqualTo(10.0).Within(Tolerance));
         }
 
         [Test]
         public void FromKilometersPerHour_ConvertsToMetersPerSecond()
         {
             var speed = Speed.FromKilometersPerHour(36.0);
-            Assert.AreEqual(10.0, speed.MetersPerSecond, Tolerance);
+            Assert.That(speed.MetersPerSecond, Is.EqualTo(10.0).Within(Tolerance));
         }
 
         [Test]
         public void FromMilesPerHour_ConvertsToMetersPerSecond()
         {
             var speed = Speed.FromMilesPerHour(1.0);
-            Assert.AreEqual(0.44704, speed.MetersPerSecond, 1e-4);
+            Assert.That(speed.MetersPerSecond, Is.EqualTo(0.44704).Within(1e-4));
         }
 
         [Test]
         public void FromKnots_ConvertsToMetersPerSecond()
         {
             var speed = Speed.FromKnots(1.0);
-            Assert.AreEqual(0.514444, speed.MetersPerSecond, 1e-4);
+            Assert.That(speed.MetersPerSecond, Is.EqualTo(0.514444).Within(1e-4));
         }
 
         [Test]
         public void KilometersPerHour_ReturnsCorrectValue()
         {
             var speed = Speed.FromMetersPerSecond(10.0);
-            Assert.AreEqual(36.0, speed.KilometersPerHour, Tolerance);
+            Assert.That(speed.KilometersPerHour, Is.EqualTo(36.0).Within(Tolerance));
         }
 
         [Test]
         public void MilesPerHour_ReturnsCorrectValue()
         {
             var speed = Speed.FromMetersPerSecond(1.0);
-            Assert.AreEqual(2.236936, speed.MilesPerHour, 1e-4);
+            Assert.That(speed.MilesPerHour, Is.EqualTo(2.236936).Within(1e-4));
         }
 
         [Test]
         public void Knots_ReturnsCorrectValue()
         {
             var speed = Speed.FromMetersPerSecond(1.0);
-            Assert.AreEqual(1.943844, speed.Knots, 1e-4);
+            Assert.That(speed.Knots, Is.EqualTo(1.943844).Within(1e-4));
         }
 
         [Test]
@@ -64,7 +64,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var original = 120.0;
             var speed = Speed.FromKilometersPerHour(original);
-            Assert.AreEqual(original, speed.KilometersPerHour, Tolerance);
+            Assert.That(speed.KilometersPerHour, Is.EqualTo(original).Within(Tolerance));
         }
 
         [Test]
@@ -72,7 +72,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var original = 60.0;
             var speed = Speed.FromMilesPerHour(original);
-            Assert.AreEqual(original, speed.MilesPerHour, Tolerance);
+            Assert.That(speed.MilesPerHour, Is.EqualTo(original).Within(Tolerance));
         }
 
         [Test]
@@ -80,7 +80,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var original = 50.0;
             var speed = Speed.FromKnots(original);
-            Assert.AreEqual(original, speed.Knots, Tolerance);
+            Assert.That(speed.Knots, Is.EqualTo(original).Within(Tolerance));
         }
 
         // --- Zero ---
@@ -88,7 +88,7 @@ namespace CjBc.Unity.Units.Tests
         [Test]
         public void Zero_HasZeroMetersPerSecond()
         {
-            Assert.AreEqual(0.0, Speed.Zero.MetersPerSecond, Tolerance);
+            Assert.That(Speed.Zero.MetersPerSecond, Is.EqualTo(0.0).Within(Tolerance));
         }
 
         // --- Arithmetic operators ---
@@ -99,7 +99,7 @@ namespace CjBc.Unity.Units.Tests
             var a = Speed.FromMetersPerSecond(3.0);
             var b = Speed.FromMetersPerSecond(7.0);
             var result = a + b;
-            Assert.AreEqual(10.0, result.MetersPerSecond, Tolerance);
+            Assert.That(result.MetersPerSecond, Is.EqualTo(10.0).Within(Tolerance));
         }
 
         [Test]
@@ -108,7 +108,7 @@ namespace CjBc.Unity.Units.Tests
             var a = Speed.FromMetersPerSecond(10.0);
             var b = Speed.FromMetersPerSecond(3.0);
             var result = a - b;
-            Assert.AreEqual(7.0, result.MetersPerSecond, Tolerance);
+            Assert.That(result.MetersPerSecond, Is.EqualTo(7.0).Within(Tolerance));
         }
 
         [Test]
@@ -116,7 +116,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var speed = Speed.FromMetersPerSecond(5.0);
             var result = speed * 3.0;
-            Assert.AreEqual(15.0, result.MetersPerSecond, Tolerance);
+            Assert.That(result.MetersPerSecond, Is.EqualTo(15.0).Within(Tolerance));
         }
 
         [Test]
@@ -124,7 +124,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var speed = Speed.FromMetersPerSecond(5.0);
             var result = 3.0 * speed;
-            Assert.AreEqual(15.0, result.MetersPerSecond, Tolerance);
+            Assert.That(result.MetersPerSecond, Is.EqualTo(15.0).Within(Tolerance));
         }
 
         [Test]
@@ -132,7 +132,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var speed = Speed.FromMetersPerSecond(15.0);
             var result = speed / 3.0;
-            Assert.AreEqual(5.0, result.MetersPerSecond, Tolerance);
+            Assert.That(result.MetersPerSecond, Is.EqualTo(5.0).Within(Tolerance));
         }
 
         [Test]
@@ -140,7 +140,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var speed = Speed.FromMetersPerSecond(5.0);
             var result = -speed;
-            Assert.AreEqual(-5.0, result.MetersPerSecond, Tolerance);
+            Assert.That(result.MetersPerSecond, Is.EqualTo(-5.0).Within(Tolerance));
         }
 
         // --- Comparison operators ---
@@ -150,7 +150,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(5.0);
-            Assert.IsTrue(a == b);
+            Assert.That(a == b, Is.True);
         }
 
         [Test]
@@ -158,7 +158,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(10.0);
-            Assert.IsFalse(a == b);
+            Assert.That(a == b, Is.False);
         }
 
         [Test]
@@ -166,7 +166,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(10.0);
-            Assert.IsTrue(a != b);
+            Assert.That(a != b, Is.True);
         }
 
         [Test]
@@ -174,7 +174,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(3.0);
             var b = Speed.FromMetersPerSecond(5.0);
-            Assert.IsTrue(a < b);
+            Assert.That(a < b, Is.True);
         }
 
         [Test]
@@ -182,7 +182,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(3.0);
-            Assert.IsFalse(a < b);
+            Assert.That(a < b, Is.False);
         }
 
         [Test]
@@ -190,7 +190,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(3.0);
-            Assert.IsTrue(a > b);
+            Assert.That(a > b, Is.True);
         }
 
         [Test]
@@ -198,7 +198,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(5.0);
-            Assert.IsTrue(a <= b);
+            Assert.That(a <= b, Is.True);
         }
 
         [Test]
@@ -206,7 +206,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(5.0);
-            Assert.IsTrue(a >= b);
+            Assert.That(a >= b, Is.True);
         }
 
         // --- IEquatable<Speed> ---
@@ -216,7 +216,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(5.0);
-            Assert.IsTrue(a.Equals(b));
+            Assert.That(a.Equals(b), Is.True);
         }
 
         [Test]
@@ -224,7 +224,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(10.0);
-            Assert.IsFalse(a.Equals(b));
+            Assert.That(a.Equals(b), Is.False);
         }
 
         [Test]
@@ -232,14 +232,14 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             object b = Speed.FromMetersPerSecond(5.0);
-            Assert.IsTrue(a.Equals(b));
+            Assert.That(a.Equals(b), Is.True);
         }
 
         [Test]
         public void Equals_Object_DifferentType_ReturnsFalse()
         {
             var a = Speed.FromMetersPerSecond(5.0);
-            Assert.IsFalse(a.Equals("not a speed"));
+            Assert.That(a.Equals("not a speed"), Is.False);
         }
 
         [Test]
@@ -247,7 +247,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(5.0);
-            Assert.AreEqual(a.GetHashCode(), b.GetHashCode());
+            Assert.That(a.GetHashCode(), Is.EqualTo(b.GetHashCode()));
         }
 
         // --- IComparable<Speed> ---
@@ -257,7 +257,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(3.0);
             var b = Speed.FromMetersPerSecond(5.0);
-            Assert.Less(a.CompareTo(b), 0);
+            Assert.That(a.CompareTo(b), Is.LessThan(0));
         }
 
         [Test]
@@ -265,7 +265,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(5.0);
-            Assert.AreEqual(0, a.CompareTo(b));
+            Assert.That(a.CompareTo(b), Is.EqualTo(0));
         }
 
         [Test]
@@ -273,7 +273,7 @@ namespace CjBc.Unity.Units.Tests
         {
             var a = Speed.FromMetersPerSecond(5.0);
             var b = Speed.FromMetersPerSecond(3.0);
-            Assert.Greater(a.CompareTo(b), 0);
+            Assert.That(a.CompareTo(b), Is.GreaterThan(0));
         }
 
         // --- ToString ---
@@ -282,7 +282,7 @@ namespace CjBc.Unity.Units.Tests
         public void ToString_ReturnsFormattedString()
         {
             var speed = Speed.FromMetersPerSecond(10.5);
-            Assert.AreEqual("10.5 m/s", speed.ToString());
+            Assert.That(speed.ToString(), Is.EqualTo("10.5 m/s"));
         }
 
         // --- Cross-unit arithmetic ---
@@ -293,7 +293,7 @@ namespace CjBc.Unity.Units.Tests
             var a = Speed.FromKilometersPerHour(36.0); // 10 m/s
             var b = Speed.FromMetersPerSecond(5.0);
             var result = a + b;
-            Assert.AreEqual(15.0, result.MetersPerSecond, Tolerance);
+            Assert.That(result.MetersPerSecond, Is.EqualTo(15.0).Within(Tolerance));
         }
     }
 }
