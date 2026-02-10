@@ -6,12 +6,12 @@ namespace CjBc.Unity.Units
     /// Represents a speed value with support for multiple units of measurement.
     /// Internally stores the value in meters per second (m/s).
     /// </summary>
-    public readonly record struct Speed : IComparable<Speed>
+    public readonly struct Speed : IEquatable<Speed>, IComparable<Speed>
     {
         /// <summary>
         /// The speed value in meters per second.
         /// </summary>
-        public readonly double MetersPerSecond;
+        public double MetersPerSecond { get; }
 
         /// <summary>
         /// The speed value converted to kilometers per hour.
@@ -57,6 +57,10 @@ namespace CjBc.Unity.Units
         public static Speed operator -(Speed a) => new Speed(-a.MetersPerSecond);
 
         // Comparison operators
+        public static bool operator ==(Speed a, Speed b) => a.MetersPerSecond == b.MetersPerSecond;
+
+        public static bool operator !=(Speed a, Speed b) => a.MetersPerSecond != b.MetersPerSecond;
+
         public static bool operator <(Speed a, Speed b) => a.MetersPerSecond < b.MetersPerSecond;
 
         public static bool operator >(Speed a, Speed b) => a.MetersPerSecond > b.MetersPerSecond;
@@ -64,6 +68,13 @@ namespace CjBc.Unity.Units
         public static bool operator <=(Speed a, Speed b) => a.MetersPerSecond <= b.MetersPerSecond;
 
         public static bool operator >=(Speed a, Speed b) => a.MetersPerSecond >= b.MetersPerSecond;
+
+        // IEquatable<Speed>
+        public bool Equals(Speed other) => MetersPerSecond == other.MetersPerSecond;
+
+        public override bool Equals(object obj) => obj is Speed other && Equals(other);
+
+        public override int GetHashCode() => MetersPerSecond.GetHashCode();
 
         // IComparable<Speed>
         public int CompareTo(Speed other) => MetersPerSecond.CompareTo(other.MetersPerSecond);
